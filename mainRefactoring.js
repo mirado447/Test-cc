@@ -86,27 +86,34 @@ export function simulateRiceCooker() {
     input = prompt('Enter your choice: ');
     const choice = parseInt(input);
 
-      if (!isNaN(choice)) {
-        if (choice === 1) {
-          riceCooker.addRice();
-        } else if (choice === 2) {
-          riceCooker.cookRice();
-        } else if (choice === 3) {
-          riceCooker.steam();
-        } else if (choice === 4) {
-          riceCooker.keepWarm();
-        } else if (choice === 5) {
-          riceCooker.removeRice();
-        } else if (choice === 6) {
-          console.log('Thank you for using the Rice Cooker Simulator. Goodbye!');
-          break;
-        } else {
-          console.log('Invalid choice. Please select a valid option.');
-        }
-      } else {
-        console.log('Invalid input. Please enter a valid number.');
-      }
+    if(isNaN(choice)){
+      console.log('Invalid input. Please enter a valid number.');
+    }else{
+      switch(choice){
+        case 1:
+            riceCooker.addRice();
+            break
+        case 2:
+            riceCooker.cookRice();
+            break
+        case 3: 
+            riceCooker.steam();
+            break
+        case 4:
+            riceCooker.keepWarm();
+            break
+        case 5: 
+            riceCooker.removeRice();
+            break
+        case 6:
+            console.log('Thank you for using the Rice Cooker Simulator. Goodbye!');
+            condition = false;
+            break;  
+        default:
+        console.log('Invalid choice. Please select a valid option.');                      
     }
+  }
+}
 }
 
 simulateRiceCooker();
